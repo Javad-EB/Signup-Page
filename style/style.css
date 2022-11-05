@@ -44,7 +44,7 @@ body {
 }
 
 .left {
-    background-image: url(/images/background.jpg);
+    background-image: url(https://raw.githubusercontent.com/Javad-EB/Signup-Page/main/images/background.jpg);
     color: #FFFFFF;
     background-size: cover;
     background-repeat: no-repeat;
