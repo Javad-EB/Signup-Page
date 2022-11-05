@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css?family=Teko|Barlow|Audiowide');
+
+:root {
+    --grey-050: #f5f7fa;
+    --grey-100: #e2e2e2;
+    --grey-200: #cbd2d9;
+    --grey-300: #9aa5b1;
+    --grey-400: #7b8794;
+    --grey-500: #616e7c;
+    --grey-600: #52606d;
+    --grey-700: #3e4c59;
+    --grey-800: #323f4b;
+    --grey-900: #1f2933;
+
+    --blue-050: #ddd9ff;
+    --blue-100: #bcb5ff;
+    --blue-200: #9488ff;
+    --blue-300: #7066ff;
+    --blue-400: #4a3ef9;
+    --blue-500: #3b27f3;
+    --blue-600: #3711de;
+    --blue-700: #2a07c5;
+    --blue-800: #2007ad;
+    --blue-900: #160384;
+}
+
+body {
+    font-family: "Teko", sans-serif;
+    font-size: larger;
+    box-sizing: border-box;
+
+}
+
+.box-form {
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100vh;
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+.left {
+    background-image: url(/images/background.jpg);
+    color: #FFFFFF;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.box-left {
+    background-color: rgba(83, 18, 99, 0.5);
+    background-repeat: no-repeat;
+    margin-top: 50%;
+    text-align: center;
+}
+
+.box-left>img {
+    width: 100px;
+}
+
+.box-left::after {
+    content: 'Are You ready For your next Challenge ?';
+    font-size: 1.5em;
+    display: block;
+}
+
+
+.right {
+    background-color: var(--grey-100);
+}
+
+.right>h1 {
+    text-align: center;
+}
+
+.span {
+    font-size: 0.8em;
+    color: var(--grey-200);
+}
+
+.right>p {
+    margin: 1em;
+}
+
+legend {
+    color: var(--grey-050);
+    background: var(--grey-500);
+    padding: 5px 10px;
+}
+
+.form {
+    /* display: inline-grid; */
+    display: grid;
+    gap: 0.4em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid #E5E7EB;
+    box-sizing: border-box;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #596D48;
+    border-radius: 5px;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    margin-left: 1em;
+    margin-bottom: 0;
+}
+
+label,
+input {
+    display: block;
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: auto;
+    padding: 5px;
+    height: 30px;
+}
+
+input {
+    box-shadow: inset 1px 1px 3px rgb(131, 166, 231);
+    border-radius: 5px;
+}
+
+input:hover,
+input:focus {
+    border-color: rgb(49, 113, 231);
+}
+
+input+span {
+    position: relative;
+}
+
+input+span::before {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+input[type=password]:invalid {
+    border: 2px solid red;
+}
+
+input:invalid+span::before {
+    content: '✖';
+    color: red;
+}
+
+input:valid+span::before {
+    content: '✓';
+    color: green;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+    margin-left: 1em;
+}
+
+.valid:before {
+    position: relative;
+    left: -5px;
+    content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+    margin-left: 1em;
+}
+
+.invalid:before {
+    position: relative;
+    left: -5px;
+    content: "✖";
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+}

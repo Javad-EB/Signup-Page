@@ -1,14 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko|Barlow|Audiowide">
+    <!-- <link rel="stylesheet" href="style/reset.css"> -->
     <link rel="stylesheet" href="style/style.css">
     <title>SignUp Page</title>
 </head>
+
 <body>
-    
+    <main">
+        <div class="box-form">
+            <div class="left">
+                <div class="box-left">
+                    <img src="images/logo.png" alt="Dota2 Logo">
+                </div>
+            </div>
+            <div class="right">
+                <h1>A MODERN MULTIPLAYER MASTERPIECE</h1>
+                <p>Every day, millions of players worldwide enter the battle as one of over a hundred Dota Heroes in a
+                    5v5 team clash. Dota is the deepest multi-player action RTS game ever made and there's always a new
+                    strategy or tactic to discover. It's completely free to play and always will be – start defending
+                    your ancient now.</p>
+                <form method="post" class="login-form">
+                    <fieldset>
+                        <legend><span class="span">JOIN THE</span> BATTLE OF THE ANCIENTS</legend>
+                        <div class="form">
+                            <div>
+                                <label for="fname">First Name:</label>
+                                <input type="text" name="fname" id="fname" placeholder="Enter FirstName" title="Enter FirstName" required>
+                                <span></span>
+                            </div>
+                            <div>
+                                <label for="lname">Last Name:</label>
+                                <input type="text" name="lname" id="lname" placeholder="Enter LastName" title="Enter LastName" required>
+                                <span></span>
+                            </div>
+                            <div>
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" id="email" placeholder="Enter Email" title="Enter Email" required>
+                                <span></span>
+                            </div>
+                            <div>
+                                <label for="pnumber">Phone Number:</label>
+                                <input type="number" name="pnumber" id="pnumber" min="6"
+                                    placeholder="Enter PhoneNumber" title="Enter PhoneNumber">
+                                <span></span>
+                            </div>
+                            <div>
+                                <label for="psw">Password:</label>
+                                <input type="password" name="psw" id="psw" placeholder="Enter Password" class="error"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                    required>
+                                <span></span>
+                            </div>
+                            <div>
+                                <label for="psw-repeat">Confirm Password:</label>
+                                <input type="password" name="psw-repeat" id="psw-repeat" placeholder="Repeat Password" title="Repeat Password"
+                                    required>
+                                <span></span>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="msg">
+                        <button type="submit" >Create Account</button>
+                    </div>
+                </form>
+                <p>
+                    Already have an account?
+                    <button onclick="document.getElementById('popup').style.display='block'"
+                        style="width:auto;">Login</button>
+                <div id="popup" class="modal">
+                    <form class="modal-content animate" method="post">
+                        <div class="imgcontainer">
+                            <span onclick="document.getElementById('popup').style.display='none'" class="close"
+                                title="Close Modal">&times;</span>
+                        </div>
+
+                        <div class="container">
+                            <label for="uname"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" name="uname" required>
+
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+                            <button type="submit">Login</button>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
+                        </div>
+
+                        <div class="container" style="background-color:#f1f1f1">
+                            <button type="button" onclick="document.getElementById('popup').style.display='none'"
+                                class="cancelbtn">Cancel</button>
+                            <span class="psw">Forgot <a href="#">password?</a></span>
+                        </div>
+                    </form>
+                </div>
+                </p>
+            </div>
+        </div>
+        </main>
+        <script src="script.js"></script>
 </body>
+
 </html>
