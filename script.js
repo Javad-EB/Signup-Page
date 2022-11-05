@@ -62,18 +62,30 @@ myInput.onkeyup = function () {
     }
 }
 
-function Validate() {
+function nameValidate() {
+var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+var name = document.getElementById('fname').value;
+if (!regName.test(name)) {
+    UI.showAlert('Name not current', 'invalid')
+    document.getElementById('fname').focus();
+} else {
+    UI.showAlert('Name is ok', 'valid')
+}
+}
+function passValidate() {
+
     var password = document.getElementById("psw").value;
     var confirmPassword = document.getElementById("psw-repeat").value;
     if (password != confirmPassword) {
-        UI.showAlert('Passwords did not match','invalid')
-    }else{
-        UI.showAlert('Password created successfully','valid')
+        UI.showAlert('Passwords did not match', 'invalid')
+    } else {
+        UI.showAlert('Password created successfully', 'valid')
     }
 }
 
 document.querySelector('.login-form').addEventListener('submit', (e) => {
     //Prevent Actual Submit
     e.preventDefault();
-    Validate();
+    nameValidate();
+    passValidate();
 });
