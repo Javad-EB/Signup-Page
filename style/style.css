@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Teko|Barlow|Audiowide');
 
 :root {
+    --red: #f44336;
+    --green-100: #69c916;
+    --green: #596d48;
     --grey-050: #f5f7fa;
     --grey-100: #e2e2e2;
     --grey-200: #cbd2d9;
@@ -25,22 +28,15 @@
 }
 
 body {
-    font-family: "Teko", sans-serif;
-    font-size: larger;
-    box-sizing: border-box;
-
+    font-family: "Teko", "Barlow" sans-serif;
+    width: fit-content();
+    height: fit-content();
 }
 
-.box-form {
-    margin: 0 auto;
+.container {
     width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
     display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-rows: 100vh;
-    align-items: stretch;
-    justify-items: stretch;
+    grid-template-columns: 1fr 2fr;
 }
 
 .left {
@@ -48,6 +44,9 @@ body {
     color: #FFFFFF;
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: "Barlow";
+    position: relative;
+    min-width: 300px;
 }
 
 .box-left {
@@ -70,88 +69,110 @@ body {
 
 .right {
     background-color: var(--grey-100);
+    height: max(100vh, 600px);
+    display: grid;
+    grid-template-rows: fit-content() fit-content() minmax(200px, 1fr);
+    grid-template-columns: 100%;
 }
 
 .right>h1 {
+    font-size: large;
+    font-weight: bold;
     text-align: center;
+    margin-top: 15px;
 }
 
 .span {
-    font-size: 0.8em;
-    color: var(--grey-200);
+    font-size: 0.7em;
 }
 
 .right>p {
     margin: 1em;
+    min-width: 500px;
 }
 
-legend {
-    color: var(--grey-050);
-    background: var(--grey-500);
-    padding: 5px 10px;
+fieldset>p {
+    color: var(--grey-900);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+fieldset {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: normal;
+    padding: 10px;
+    margin: 0 10px;
+    box-shadow: 0px 3px 5px var(--grey-600);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
 }
 
 .form {
-    /* display: inline-grid; */
+    min-width: 400px;
+    padding: 0 15px;
     display: grid;
-    gap: 0.4em;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
+    column-gap: 100px;
+    row-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 /* Full-width input fields */
-input[type=text],
-input[type=number],
-input[type=email],
-input[type=password] {
+input {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 3px solid #E5E7EB;
+    border: 3px solid var(--grey-200);
     box-sizing: border-box;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     border-radius: 5px;
+    font-family: inherit;
+    font-size: 1em;
+    box-shadow: inset 1px 1px 3px var(--blue-100);
+    border-radius: 5px;
 }
 
 /* Set a style for all buttons */
 button {
-    background-color: #596D48;
+    background-color: var(--green);
     border-radius: 5px;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 15px;
     border: none;
     cursor: pointer;
-    width: 25%;
-    margin-left: 1em;
-    margin-bottom: 0;
+    min-width: 25%;
 }
 
-label,
-input {
+button:hover {
+    opacity: 0.8;
+}
+
+label {
     display: block;
     font-family: inherit;
     font-size: 100%;
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
-    width: auto;
-    padding: 5px;
-    height: 30px;
 }
 
-input {
-    box-shadow: inset 1px 1px 3px rgb(131, 166, 231);
-    border-radius: 5px;
+label::after {
+    content: '*';
+    color: var(--red);
+    opacity: 0.6;
 }
 
 input:hover,
 input:focus {
-    border-color: rgb(49, 113, 231);
+    border-color: var(--blue-400);
 }
 
 input+span {
@@ -165,23 +186,56 @@ input+span::before {
 }
 
 input[type=password]:invalid {
-    border: 2px solid red;
+    border: 2px solid var(--red);
 }
 
 input:invalid+span::before {
     content: '✖';
-    color: red;
+    color: var(--red);
 }
 
 input:valid+span::before {
     content: '✓';
+    color: var(--green-100);
+}
+
+.error-message {
+    font-size: 1em;
+    text-transform: none;
+    color: var(--red);
+}
+
+.inactive {
+    opacity: 0;
+}
+
+.active {
+    opacity: 1;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
     color: green;
+    margin-left: 1em;
 }
 
-button:hover {
-    opacity: 0.8;
+.valid:before {
+    position: relative;
+    left: -5px;
+    content: "✔";
 }
 
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+    margin-left: 1em;
+}
+
+.invalid:before {
+    position: relative;
+    left: -5px;
+    content: "✖";
+}
 
 /* Extra styles for the cancel button */
 .cancelbtn {
@@ -197,7 +251,7 @@ button:hover {
     position: relative;
 }
 
-.container {
+.popcontainer {
     padding: 16px;
 }
 
@@ -243,30 +297,6 @@ span.psw {
 .close:focus {
     color: red;
     cursor: pointer;
-}
-
-/* Add a green text color and a checkmark when the requirements are right */
-.valid {
-    color: green;
-    margin-left: 1em;
-}
-
-.valid:before {
-    position: relative;
-    left: -5px;
-    content: "✔";
-}
-
-/* Add a red text color and an "x" when the requirements are wrong */
-.invalid {
-    color: red;
-    margin-left: 1em;
-}
-
-.invalid:before {
-    position: relative;
-    left: -5px;
-    content: "✖";
 }
 
 /* Add Zoom Animation */
